@@ -1,13 +1,9 @@
 <?php
     namespace App\Models;
 
-    class Produto {
+    use MF\Model\Model;
 
-        protected $db;
-
-        public function __construct(\PDO $db){
-            $this->db = $db;
-        }
+    class Produto extends Model {
 
         public function getProdutos(){
 
@@ -17,9 +13,7 @@
                 from 
                     tb_produtos
                 ';
-
-            
-
+                
             return $this->db->query($query)->fetchAll();
         }
     }

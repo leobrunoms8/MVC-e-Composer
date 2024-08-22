@@ -1,13 +1,9 @@
 <?php
     namespace App\Models;
 
-    class Info {
+    use MF\Model\Model;
 
-        protected $db;
-
-        public function __construct(\PDO $db){
-            $this->db = $db;
-        }
+    class Info extends Model {
 
         public function getInfo(){
 
@@ -17,9 +13,7 @@
                 from 
                     tb_info
                 ';
-
-            
-
+                
             return $this->db->query($query)->fetchAll();
         }
     }
