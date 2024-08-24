@@ -8,7 +8,7 @@
             try{
 
                 $conn = new \PDO(
-                    "mysql:host=192.168.1.4;dbname=mvc;charset=utf8",
+                    "mysql:host=192.168.1.4;dbname=twitter_clone;charset=utf8",
                     "developer",
                     "Leo140707"
                 );
