@@ -89,7 +89,17 @@
 
 
 		</div>
-
+		<div class="row">
+			<nav aria-label="Page navigation">
+				<ul class="pagination mt-3">					
+					<li class="page-item"><a class="page-link" href="?pagina=1">Primeira</a></li>
+					<?php for($i = 1; $i<= $this->view->totaDePaginas; $i++){ ?>
+					<li class="page-item <?= $this->view->paginaAtiva == $i ? 'active': ''?>"><a class="page-link" href="?pagina=<?= $i ?>"><?= $i ?></a></li>
+					<?php } ?>
+					<li class="page-item"><a class="page-link" href="?pagina=<?=$this->view->totaDePaginas?>">Última</a></li>					
+				</ul>
+			</nav>
+		</div>
 
 		<div class="col-md-3">
 			<div class="quemSeguir">

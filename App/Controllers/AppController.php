@@ -14,7 +14,15 @@
 
             $tweet->__set('id_usuario', $_SESSION['id']);
 
-            $tweets = $tweet->getAll();
+            $pagina = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
+            $totalRegistrosPorPagina = 10;
+            $deslocamento = ($pagina - 1) * $totalRegistrosPorPagina;
+            $this->view->paginaAtiva = $pagina;
+
+            $totalTweets = $tweet->getTotalRegistros();
+            $this->view->totaDePaginas = ceil($totalTweets['total'] / $totalRegistrosPorPagina);
+
+            $tweets = $tweet->getAll($totalRegistrosPorPagina, $deslocamento);
 
             $this->view->tweets = $tweets;
 
